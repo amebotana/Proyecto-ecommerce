@@ -18,12 +18,6 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
-/**
- *Ordena los productos siguiendo el criterio a-z/ men-may /                                                                   
- * @param {*} criteria 
- * @param {*} array 
- * @returns 
- */
 function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_COST)
@@ -58,14 +52,16 @@ function sortProducts(criteria, array){
  */
 function showProductsList(){
 
+    let buscadorInput = document.getElementById("buscador").value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductsArray.length; i++){
         let product = currentProductsArray[i];
 
 /**Filtros:
  */
-        if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
+        if ((((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount)))&&((product.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(buscadorInput)||(product.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(buscadorInput))))){
 /**
  * Aqui se agrega todo al HTML:
  */

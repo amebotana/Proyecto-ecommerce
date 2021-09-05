@@ -45,7 +45,7 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
   let traerUsuario = sessionStorage.getItem("Usuario");
-  document.getElementById("nombreUsuario").innerHTML = "Usuario: " + traerUsuario;
+  document.getElementById("nombreUsuario").innerHTML = "HOLA " + traerUsuario;
 
   if (traerUsuario == null){
     window.location.href = "index.html"
