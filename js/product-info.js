@@ -20,6 +20,8 @@ function ShowProductInfo(productInfo) {
     <h1 class="text-center mt-4 mb-1">${currentProduct.name}</h1>
     <h2 class="text-center">${"Precio: " + currentProduct.cost + " " + currentProduct.currency}</h2>
     <p id="parrafo" class="mt-4 mb-5">${currentProduct.description}</p>
+    <h6>Categoría: <a href="category-info.html">${currentProduct.category}</a></h6>
+    <h6 class="mb-5">Cantidad de vendidos: ${currentProduct.soldCount}</h6>
     <button class="btn btn-primary skin-light btn-light" id="botonlight"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
   
     <button class="btn btn-primary ml-3" id="botonblue">Comprar ahora</button>
@@ -68,7 +70,7 @@ function mostrarComentarios(comments){
   for (let index = 0; index < comments.length; index++) {
     const comentario = comments[index];
   
-  let fecha = comentario.dateTime;
+  let fecha = new Date(comentario.dateTime).toLocaleString();
   let puntuacion = comentario.score;
   let texto = comentario.description;
   let usuario = comentario.user;
@@ -146,13 +148,13 @@ function pintarEstrellas(){
 function publicarComentario(){
   let usuario = sessionStorage.getItem("Usuario");
   let texto = document.getElementById("textoInput").value;
-  let fecha = new Date();
+  let fecha = new Date().toLocaleString()
   let score = document.getElementById("estrellas").getElementsByClassName("fa fa-star checked").length;
   console.log(usuario + texto + fecha + score)
   
   let contenedorComentarios = document.getElementById("comentarios");
   let estrellas = ""
-  if (score > 0){
+  if (score >= 0){
     for (let i = 0; i < score; i++) {
       estrellas += '<span class="fa fa-star checked"></span>'
     }
@@ -192,4 +194,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
   });
 
   pintarEstrellas();
+
+
+document.getElementById("resetEstrellas").addEventListener("click", function(){
+  let estrellas = document.getElementById("estrellas").getElementsByClassName("fa fa-star")
+  for (let index = 0; index < estrellas.length; index++) {
+    const estrellaPintada = estrellas[index];
+    estrellaPintada.classList.remove("checked")
+  }
+})
+
 });
