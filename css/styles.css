@@ -144,3 +144,35 @@ a.custom-card:hover {
   font-weight: bold;
   color: white;
 }
+
+.skin-light .btn-light, #botonlight {
+  color: #4f4f4f !important;
+  background-color: #f2f2f2 !important;
+  margin: 0;
+  font-weight: 500;
+  border-radius: .25rem;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 5%) !important;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 5%) !important;
+  font-size: 12px;
+  padding: 17px 29px 16px 29px;
+  line-height: 1;
+}
+
+#botonblue {
+  color: #ffffff !important;
+  background-color: #190ae7 !important;
+  margin: 0;
+  font-weight: 500;
+  border-radius: .25rem;
+  -webkit-box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 5%) !important;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 5%) !important;
+  font-size: 12px;
+  padding: 17px 29px 16px 29px;
+  line-height: 1;
+}
+
+#parrafo {
+    font-family: "Roboto",sans-serif;
+    font-weight: 300;
+}
+

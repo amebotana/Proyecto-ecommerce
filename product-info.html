@@ -11,6 +11,9 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
@@ -26,13 +29,44 @@
       <span class="d-flex-py-2" id="nombreUsuario"></span>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container-fluid p-5">
+    <div class="row" id="ProductInfo">
+
+
     </div>
+
+    <!-- Acá comienza a mostrarse el producto -->
+    <div id="comentarios">
+      <h2 class="mt-5 mb-3">Opiniones acerca del producto:</h2>
+
+    </div>
+    <div id="productosRelated" class="row">
+      <h2 class="col-12 mt-5 mb-3">Quienes vieron este producto, también compraron:</h2>
+    </div>
+
+    <div class="container p-md-5" id="agregar_comentarios">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <button class="btn btn-success" type="button" onclick="publicarComentario()">Enviar</button>
+        </div>
+        <input id="textoInput" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+      </div>
+      <label class="mt-3" for="customRange3">Cuantas estrellas?</label>
+      <div id="estrellas">
+      <span class="fa fa-star" data-index="1"></span>
+      <span class="fa fa-star" data-index="2"></span>
+      <span class="fa fa-star" data-index="3"></span>
+      <span class="fa fa-star" data-index="4"></span>
+      <span class="fa fa-star" data-index="5"></span>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+  <hr>
+  <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
   </div>
   <footer class="text-muted">
     <div class="container">

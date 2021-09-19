@@ -4,14 +4,14 @@
 function myFunction() {
     var usuario = document.getElementById("inputEmail").value;
     var contrasenia = document.getElementById("inputPassword").value;
+
     if (usuario != "" && contrasenia != "") {
-        sessionStorage.setItem("Usuario", usuario)//guardo el valor ingresado en sessionStorage
+        sessionStorage.setItem("Usuario", usuario) //guardo el valor del ampo en sessionStorage
         window.location.href = "home.html"; //redirijo la página a home
     } else {
         alert("Debe completar los datos");
     }
-
-
+    
 }
 
 
