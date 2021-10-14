@@ -14,6 +14,42 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">JAP E-Mercado</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav col-12">
+          <li class="nav-item active">
+            <a class="nav-link" href="home.html">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías	</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products.html">Productos	</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender	</a>
+          </li>
+          <li class="nav-item dropdown ml-auto">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="d-flex-py-2" id="nombreUsuario"></span>
+            </a>
+            <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+              <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+    <!--  
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
@@ -23,7 +59,7 @@
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
         <span class="d-flex-py-2" id="nombreUsuario"></span>
       </div>
-    </nav>
+    </nav>-->
     <main role="main">
       <section class="jumbotron text-center">
         <div class="m-5">

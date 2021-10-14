@@ -11,6 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -34,22 +35,139 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <span class="d-flex-py-2" id="nombreUsuario"></span>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">JAP E-Mercado</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav col-12">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">Categorías	</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Productos	</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sell.html">Vender	</a>
+        </li>
+        <li class="nav-item dropdown ml-auto">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="d-flex-py-2" id="nombreUsuario"></span>
+          </a>
+          <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item" href="cart.html">Ver mi carrito <span><i class="fas fa-shopping-cart"></i></span></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+          </div>
+        </li>
+      </ul>
+
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container-fluid p-5">
+    <div class="text-center p-4">
+      <h2>Carrito de compra</h2>
+      <p class="lead">Confirma tu compra y rellena tu información de envío</p>
+    </div>
+
+
+    <div class="container">
+      <div class="text-right">
+        <input onchange="cambiarMoneda(this.checked)" type="checkbox" checked data-toggle="toggle" data-on="UYU" data-off="USD" data-onstyle="success" data-offstyle="danger">
+      </div>
+
+      <div class="row">
+        <div class="col-12" id="contenedorCarrito">
+          <div class="row p-2">
+            <div class="col-2 text-center"><h6>Foto</h6></div>
+            <div class="col-5"><h6 class="">Nombre producto</h6></div>
+            <div class="col-2"><h6 class="text-center">Precio unitario</h6></div>
+            <div class="col-1"><h6>Unid.</h6></div>
+            <div class="col-2"><h6 class="text-center">Subtotal</h6></div>
+          </div>
+
+        </div>
+    
+      </div>
+      <div class="row">
+<div class="col-8">
+<h3 class="mt-5">Datos de envío:</h3>
+  <form>
+
+    <div class="form-group">
+      <label for="inputAddress">Dirección:</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Nombre de calle, número de puerta, apto o piso">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Esquina:</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Esquina">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Ciudad:</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="inputState">País:</label>
+        <input type="text" class="form-control" id="inputState">
+
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Código postal</label>
+        <input type="text" class="form-control" id="inputZip">
+      </div>
+    </div>
+    <fieldset class="form-group">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Tipo de envío:</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label" for="gridRadios1">
+              Premium (2-5 días) - Costo del 15% sobre el subtotal.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <label class="form-check-label" for="gridRadios2">
+              Express (5-8 días) - Costo del 7% sobre el subtotal.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+            <label class="form-check-label" for="gridRadios3">
+              Standard (12 a 15 días) - Costo del 5% sobre el subtotal
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+</div>
+<div class="col-4">
+<div id="resumenCompra" class="mt-5">
+  <h3 class="text-right">Resumen de compra:</h3>
+  <p class="text-right">Subtotal: <span id="subtotal" class="ml-5">UYU 12 500</span></p>
+  <p class="text-right">Tipo de envío: <span id="tipoEnvio" class="ml-5">Premium</span></p>
+  <p class="text-right">Costo de envío:<span id="costoEnvio" class="ml-5">UYU 500</span></p>
+  <p class="text-right">TOTAL:<span id="total" class="ml-5">UYU 13 000</span></p>
+
+  <button type="button" class="btn btn-block m-3 btn-primary">Finalizar compra</button>
+ <br>
+  <button type="button" class="btn btn-block m-3 btn-outline-primary">Seguir comprando </button>
+
+
+</div>
+</div>
+
+      </div>
     </div>
   </div>
   <div id="spinner-wrapper">
@@ -65,6 +183,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 </body>
 
 </html>

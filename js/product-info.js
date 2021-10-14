@@ -1,32 +1,33 @@
 let currentProduct = []
 
 function ShowProductInfo(productInfo) {
-    if (productInfo != undefined) {
-        currentProduct = productInfo // si el producto está definido, va a estar en el array
-    }
-
-    let contenedorProduct = document.getElementById("ProductInfo")
-    document.title = `${currentProduct.name}`; // cambio el titulo de la ventana por el nombre del producto
- //inserto nombre del producto, costo, moneda y descripción:
-    contenedorProduct.innerHTML = `
-    <div class="col-md-6">
-    <div id="carouselProducto" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
+  if (productInfo != undefined) {
+    currentProduct = productInfo // si el producto está definido, va a estar en el array
+  }
+  
+  let contenedorProduct = document.getElementById("ProductInfo")
+  document.title = `${currentProduct.name}`; // cambio el titulo de la ventana por el nombre del producto
+  //inserto nombre del producto, costo, moneda y descripción y cantidad de vendidos, tambien botones de comprar ahora y agregar al carrito:
+  contenedorProduct.innerHTML = `
+  <div class="col-md-6">
+  <div id="carouselProducto" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
 
   </div>
   </div>
   </div>
   <div class="col-md-6 col-xs-12">
-    <h1 class="text-center mt-4 mb-1">${currentProduct.name}</h1>
-    <h2 class="text-center">${"Precio: " + currentProduct.cost + " " + currentProduct.currency}</h2>
+  <h1 class="text-center mt-4 mb-1">${currentProduct.name}</h1>
+  <h2 class="text-center">${"Precio: " + currentProduct.cost + " " + currentProduct.currency}</h2>
     <p id="parrafo" class="mt-4 mb-5">${currentProduct.description}</p>
     <h6>Categoría: <a href="category-info.html">${currentProduct.category}</a></h6>
     <h6 class="mb-5">Cantidad de vendidos: ${currentProduct.soldCount}</h6>
     <button class="btn btn-primary skin-light btn-light" id="botonlight"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
-  
+    
     <button class="btn btn-primary ml-3" id="botonblue">Comprar ahora</button>
   </div>
   `
+  // mostrar fotos del producto  
     let contenedorSlider = document.getElementsByClassName("carousel-inner")[0]// identifico el contenedor del slider
 
     for (let index = 0; index < currentProduct.images.length; index++) { //recorro las imagenes y las inserto una por una en el html.
@@ -37,8 +38,9 @@ function ShowProductInfo(productInfo) {
       </div>
   `
     }
-    let imagenes = document.getElementsByClassName("carousel-item")
-    imagenes[0].className += " active"
+    // bootstrap exige que la primera imagen tenga la clase "active"
+    let imagenes = document.getElementsByClassName("carousel-item") // obtenemos todas las imagenes insertadas
+    imagenes[0].className += " active"//a la primer imagen le agregamos la clase "active"
     //inserto los controles del slider
     contenedorSlider.innerHTML += `
     </div>
@@ -52,31 +54,21 @@ function ShowProductInfo(productInfo) {
     </a>
   </div>
   `
-
-    // Cambiar titulo de ventana por nombre de producto DONE
-    // mostrar nombre del producto DONE 
-    // mostrar fotos del producto DONE 
-
-    // mostrar precio + currency DONE
-    // mostrar descripción DONE
-    // mostrar vendidos 
-    // mostrar productos related DONE
-    // mostrar boton añadir al carrito DONE / comprar ahora DONE/ agregar a favoritos 
-    // mostrar comentarios DONE
-
+    
 }
-
+  
+// mostrar las opiniones 
 function mostrarComentarios(comments){
   for (let index = 0; index < comments.length; index++) {
     const comentario = comments[index];
-  
-  let fecha = new Date(comentario.dateTime).toLocaleString();
-  let puntuacion = comentario.score;
-  let texto = comentario.description;
+    
+    let fecha = new Date(comentario.dateTime).toLocaleString();
+    let puntuacion = comentario.score;
+    let texto = comentario.description;
   let usuario = comentario.user;
-
+  
   let contenedorComentarios = document.getElementById("comentarios");
-
+  
   let estrellas = ""
   if (puntuacion > 0){
     for (let i = 0; i < puntuacion; i++) {
@@ -89,28 +81,28 @@ function mostrarComentarios(comments){
   contenedorComentarios.innerHTML += `
   <div class="comentario">
   <h4>${usuario}</h4>
-   ${estrellas}
+  ${estrellas}
   <p>${texto}</p>
   <p>${fecha}</p>
-</div>
-
+  </div>
+  
   `
-  }
 }
-function mostrarProductosRelated(productos){
-  console.log(currentProduct)
-  for (let index = 0; index < currentProduct.relatedProducts.length; index++) {
-  productos[currentProduct.relatedProducts[index]]
-
-  let relacionado = productos[currentProduct.relatedProducts[index]]
-  console.log(relacionado)
-
+}
+// mostrar productos relacionados
+function mostrarProductosRelated(productos){ //recibe todos los productos
+  for (let index = 0; index < currentProduct.relatedProducts.length; index++) {//el for se repite segun la cantidad de elementos que tenga relatedProducts
+//obtengo el primer indice del relacionado
+  let indiceRelacionado = currentProduct.relatedProducts[index]
+//obtengo el producto [indice]
+  let relacionado = productos[indiceRelacionado]
+  // del producto relacionado obtenemos los atributos
   let nombre = relacionado.name;
   let costo = relacionado.currency + " " + relacionado.cost;
   let imagen = relacionado.imgSrc;
-
+//definimos el contenedor HTML donde se van a mostrar los productos relacionados
   let contenedorRelatedProducts = document.getElementById("productosRelated");
-
+//a ese contenedor le insertamos la plantilla
   contenedorRelatedProducts.innerHTML += `
   <div class="card m-2" style="width: 18rem;">
   <img src="${imagen}" class="card-img-top" alt="...">
@@ -126,15 +118,15 @@ function mostrarProductosRelated(productos){
 }
 function pintarEstrellas(){
 
-  let estrellas = document.getElementById("estrellas").getElementsByClassName("fa fa-star")
+  let estrellas = document.getElementById("estrellas").getElementsByClassName("fa fa-star")//busca todas las estrellas del id estrellas y de ese id, la clase que contiene las estrellas pintadas
   
-  for (let i = 0; i < estrellas.length; i++) {
+  for (let i = 0; i < estrellas.length; i++) { //recorro el array de estrellas
     const estrella = estrellas[i];
     console.log(typeof estrellas)
-    estrella.addEventListener("mouseover", function(){
+    estrella.addEventListener("mouseover", function(){//a cada una le agregamos un eventlistener y que se ejecute la funcion
       for (let index = 0; index < estrellas.length; index++) {
         const estrellaPintada = estrellas[index];
-        estrellaPintada.classList.remove("checked")
+        estrellaPintada.classList.remove("checked")//a la que esta pintada le eliminamos la clase checked es decir la despinto
       }
       for (let index = 0; index < estrella.getAttribute("data-index"); index++) {
         const estrella = estrellas[index];
