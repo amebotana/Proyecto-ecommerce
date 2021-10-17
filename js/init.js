@@ -60,3 +60,6 @@ function cerrarSesion(){
   window.location.reload();
 }
 
+function seguirComprando(){
+  window.location.href = "products.html"
+}

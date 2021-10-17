@@ -41,21 +41,21 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav col-12">
-        <li class="nav-item active">
+    <div class="row collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav col-12 justify-content-between">
+        <li class="nav-item active mx-4">
           <a class="nav-link" href="home.html">Inicio <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-4">
           <a class="nav-link" href="categories.html">Categorías	</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-4">
           <a class="nav-link" href="products.html">Productos	</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-4">
           <a class="nav-link" href="sell.html">Vender	</a>
         </li>
-        <li class="nav-item dropdown ml-auto">
+        <li class="nav-item dropdown ml-auto ">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="d-flex-py-2" id="nombreUsuario"></span>
           </a>
@@ -73,7 +73,7 @@
   <div class="container-fluid p-5">
     <div class="text-center p-4">
       <h2>Carrito de compra</h2>
-      <p class="lead">Confirma tu compra y rellena tu información de envío</p>
+      <p class="lead">Revisa y confirma tu compra</p>
     </div>
 
 
@@ -98,6 +98,8 @@
       <div class="row">
 <div class="col-8">
 <h3 class="mt-5">Datos de envío:</h3>
+<p>Usaremos estos datos para generar tu factura.</p>
+<br>
   <form>
 
     <div class="form-group">
@@ -108,6 +110,11 @@
       <label for="inputAddress2">Esquina:</label>
       <input type="text" class="form-control" id="inputAddress2" placeholder="Esquina">
     </div>
+    <div class="form-group">
+      <label for="inputTelephone">Teléfono de contacto:</label>
+      <input type="text" class="form-control" id="inputTelephone" placeholder="(+598) 098572881">
+    </div>
+
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputCity">Ciudad:</label>
@@ -128,19 +135,19 @@
         <legend class="col-form-label col-sm-2 pt-0">Tipo de envío:</legend>
         <div class="col-sm-10">
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+            <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="premium" checked>
             <label class="form-check-label" for="gridRadios1">
               Premium (2-5 días) - Costo del 15% sobre el subtotal.
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+            <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="express">
             <label class="form-check-label" for="gridRadios2">
               Express (5-8 días) - Costo del 7% sobre el subtotal.
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+            <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="standard">
             <label class="form-check-label" for="gridRadios3">
               Standard (12 a 15 días) - Costo del 5% sobre el subtotal
             </label>
@@ -153,15 +160,16 @@
 </div>
 <div class="col-4">
 <div id="resumenCompra" class="mt-5">
-  <h3 class="text-right">Resumen de compra:</h3>
-  <p class="text-right">Subtotal: <span id="subtotal" class="ml-5">UYU 12 500</span></p>
+  <h3 class="text-right">Detalle de la compra:</h3>
+  <br>
+  <p class="text-right">Producto: <span id="subtotal" class="ml-5">UYU 12 500</span></p>
   <p class="text-right">Tipo de envío: <span id="tipoEnvio" class="ml-5">Premium</span></p>
   <p class="text-right">Costo de envío:<span id="costoEnvio" class="ml-5">UYU 500</span></p>
-  <p class="text-right">TOTAL:<span id="total" class="ml-5">UYU 13 000</span></p>
-
-  <button type="button" class="btn btn-block m-3 btn-primary">Finalizar compra</button>
+  <p class="text-right">Total a pagar:<span id="total" class="ml-5">UYU 13 000</span></p>
+<br>
+  <button type="button" class="btn btn-block m-3 btn-primary">Confirmar compra</button>
  <br>
-  <button type="button" class="btn btn-block m-3 btn-outline-primary">Seguir comprando </button>
+  <button onclick= "seguirComprando()" type="button" class="btn btn-block m-3 btn-outline-primary">Seguir comprando </button>
 
 
 </div>

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
-let moneda 
+let moneda = "UYU"
 
 function mostrarCarrito() { // encontramos el contenedor, lo vacío y con un for insertamos la plantilla 
 
@@ -25,11 +25,11 @@ function mostrarCarrito() { // encontramos el contenedor, lo vacío y con un for
         contenedor.innerHTML += `<div class="row p-2 elementoCarrito">
         <div class="col-2"><img src="${cartItem.src}" class="img-fluid"></div>
         <div class="col-5"><p class="mt-4">${cartItem.name}</p></div>
-        <div class="col-2"><h5 class="text-center mt-4">${cartItem.currency +" "+ cartItem.unitCost}</h5></div>
+        <div class="col-2"><h5 class="text-center mt-4">${cartItem.currency +" "+ numberWithCommas(cartItem.unitCost)}</h5></div>
         <div class="col-1"><input name= "${i}" onchange= "actualizarCarrito(this.value,this.name)" type="number" min="1" max="99" value="${cartItem.count}" class="mt-4"></div> 
-        <div class="col-2"><h5 class="text-center mt-4 subtotal">${cartItem.currency + cartItem.count * cartItem.unitCost}</h5></div>
+        <div class="col-2"><h5 class="text-center mt-4 subtotal">${cartItem.currency +" "+ numberWithCommas(cartItem.count * cartItem.unitCost)}</h5></div>
       </div>`
-// el value del input se define a través del JSON. en ese input tenemos el atributo onchange, en la funcion actualizarCarrito, que recibe el valor(value) y el name(id de producto)
+        // el value del input se define a través del JSON. en ese input tenemos el atributo onchange, en la funcion actualizarCarrito, que recibe el valor(value) y el name(id de producto)
     }
 }
 
@@ -38,20 +38,39 @@ function actualizarCarrito(valor, id) { //recibe un valor y un id
     let itemClickeado = items[id] // elige el item seleccionado (del array el que tenga el indice "id")
     infoCarrito[id].count = valor // seteamos el nuevo value del item
     let itemSubtotal = valor * infoCarrito[id].unitCost // calculamos el subtotal
-    itemClickeado.getElementsByClassName("subtotal")[0].innerHTML = infoCarrito[id].currency + itemSubtotal; // dentro del item clickeado, buscamos el contenedor del subtotal y le insertamos moneda + subtotal
+    itemClickeado.getElementsByClassName("subtotal")[0].innerHTML = infoCarrito[id].currency + " " + numberWithCommas(itemSubtotal); // dentro del item clickeado, buscamos el contenedor del subtotal y le insertamos moneda + subtotal
     actualizarSubtotal(); // ejecutamos la funcion actualizarSubtotal.
 }
 
-function actualizarSubtotal(){
+function actualizarSubtotal() {
 
-let subtotal = 0 //definimos el contador del subototal
-for (let index = 0; index < infoCarrito.length; index++) { //recorre todos los productos del carrito, calcula su subtotal (count x unitcost) y lo acumula en la variable subtotal.
-    const producto = infoCarrito[index];
-let suma = producto.unitCost * producto.count
-subtotal += suma
-}
+    let subtotal = 0 //definimos el contador del subototal
+    for (let index = 0; index < infoCarrito.length; index++) { //recorre todos los productos del carrito, calcula su subtotal (count x unitcost) y lo acumula en la variable subtotal.
+        const producto = infoCarrito[index];
+        let suma = producto.unitCost * producto.count
+        subtotal += suma
+    }
 
-document.getElementById("subtotal").innerHTML = moneda + numberWithCommas(subtotal) // insertamos  moneda + subtotal en el resumen de compra.
+    // calculadora de envío
+    let envio = document.querySelector('input[name="gridRadios"]:checked').value;//obtiene el valor del radiobutton
+    let costodeEnvio = 0 // inicializamos la variable en 0.
+    if (envio == "premium") { //identificamos el tipo de envio en html
+        costodeEnvio = (15 * parseInt(subtotal)) / 100 // se calcula el porcentaje del envio
+        document.getElementById("costoEnvio").innerHTML = moneda + " " + numberWithCommas(costodeEnvio) // insertamos en el html el costoenvio
+        document.getElementById("tipoEnvio").innerHTML = "Premium"// insertamos en el html el tipo de envio
+    } else if (envio == "express") {
+        costodeEnvio = (7 * parseInt(subtotal)) / 100
+        document.getElementById("costoEnvio").innerHTML = moneda + " " + numberWithCommas(costodeEnvio)
+        document.getElementById("tipoEnvio").innerHTML = "Express"
+    } else if (envio == "standard") {
+        costodeEnvio = (5 * parseInt(subtotal)) / 100
+        document.getElementById("costoEnvio").innerHTML = moneda + numberWithCommas(costodeEnvio)
+        document.getElementById("tipoEnvio").innerHTML = "Standard"
+
+    }
+    let total = costodeEnvio + subtotal // calcula el total
+    document.getElementById("total").innerHTML = moneda + " " + numberWithCommas(total) // insertamos la moneda + el total
+    document.getElementById("subtotal").innerHTML = moneda + " " + numberWithCommas(subtotal) // insertamos  moneda + subtotal en el resumen de compra.
 
 }
 
@@ -66,7 +85,7 @@ function cambiarMoneda(swichMoneda) { //su funcionamiento se basa en un checkbox
         if (producto.currency != moneda && producto.currency === "UYU") {
             producto.currency = "USD"
             producto.unitCost = producto.unitCost / 40
- 
+
         }
         if (producto.currency != moneda && producto.currency === "USD") {
             producto.currency = "UYU"
