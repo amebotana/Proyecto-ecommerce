@@ -16,6 +16,7 @@ function guardarDatos() {
 
     localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario)) // lo convertimos a string y guardo en LocalStorage.
 
+    document.getElementById("mensajeDatos").innerHTML = "Has actualizado tus datos correctamente!"
     return false // previene la actualización de la pagina al enviarse los datos.
 }
 
@@ -47,3 +48,4 @@ function fotoCargada(){
         foto.src = lector.result
     }
 }
+
