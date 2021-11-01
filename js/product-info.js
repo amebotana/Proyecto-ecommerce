@@ -4,7 +4,7 @@ function ShowProductInfo(productInfo) {
   if (productInfo != undefined) {
     currentProduct = productInfo // si el producto está definido, va a estar en el array
   }
-  
+
   let contenedorProduct = document.getElementById("ProductInfo")
   document.title = `${currentProduct.name}`; // cambio el titulo de la ventana por el nombre del producto
   //inserto nombre del producto, costo, moneda y descripción y cantidad de vendidos, tambien botones de comprar ahora y agregar al carrito:
@@ -28,21 +28,21 @@ function ShowProductInfo(productInfo) {
   </div>
   `
   // mostrar fotos del producto  
-    let contenedorSlider = document.getElementsByClassName("carousel-inner")[0]// identifico el contenedor del slider
+  let contenedorSlider = document.getElementsByClassName("carousel-inner")[0] // identifico el contenedor del slider
 
-    for (let index = 0; index < currentProduct.images.length; index++) { //recorro las imagenes y las inserto una por una en el html.
-        const imagen = currentProduct.images[index];
-        contenedorSlider.innerHTML += `
+  for (let index = 0; index < currentProduct.images.length; index++) { //recorro las imagenes y las inserto una por una en el html.
+    const imagen = currentProduct.images[index];
+    contenedorSlider.innerHTML += `
         <div class="carousel-item">
         <img src="${imagen}" class="d-block w-100" alt="...">
       </div>
   `
-    }
-    // bootstrap exige que la primera imagen tenga la clase "active"
-    let imagenes = document.getElementsByClassName("carousel-item") // obtenemos todas las imagenes insertadas
-    imagenes[0].className += " active"//a la primer imagen le agregamos la clase "active"
-    //inserto los controles del slider
-    contenedorSlider.innerHTML += `
+  }
+  // bootstrap exige que la primera imagen tenga la clase "active"
+  let imagenes = document.getElementsByClassName("carousel-item") // obtenemos todas las imagenes insertadas
+  imagenes[0].className += " active" //a la primer imagen le agregamos la clase "active"
+  //inserto los controles del slider
+  contenedorSlider.innerHTML += `
     </div>
     <a class="carousel-control-prev" href="#carouselProducto" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -54,31 +54,31 @@ function ShowProductInfo(productInfo) {
     </a>
   </div>
   `
-    
+
 }
-  
+
 // mostrar las opiniones 
-function mostrarComentarios(comments){
+function mostrarComentarios(comments) {
   for (let index = 0; index < comments.length; index++) {
     const comentario = comments[index];
-    
+
     let fecha = new Date(comentario.dateTime).toLocaleString();
     let puntuacion = comentario.score;
     let texto = comentario.description;
-  let usuario = comentario.user;
-  
-  let contenedorComentarios = document.getElementById("comentarios");
-  
-  let estrellas = ""
-  if (puntuacion > 0){
-    for (let i = 0; i < puntuacion; i++) {
-      estrellas += '<span class="fa fa-star checked"></span>'
+    let usuario = comentario.user;
+
+    let contenedorComentarios = document.getElementById("comentarios");
+
+    let estrellas = ""
+    if (puntuacion > 0) {
+      for (let i = 0; i < puntuacion; i++) {
+        estrellas += '<span class="fa fa-star checked"></span>'
+      }
+      for (let i = 0; i < 5 - puntuacion; i++) {
+        estrellas += '<span class="fa fa-star"></span>'
+      }
     }
-    for (let i = 0; i < 5-puntuacion; i++) {
-      estrellas += '<span class="fa fa-star"></span>'
-    }
-  }
-  contenedorComentarios.innerHTML += `
+    contenedorComentarios.innerHTML += `
   <div class="comentario">
   <h4>${usuario}</h4>
   ${estrellas}
@@ -87,23 +87,23 @@ function mostrarComentarios(comments){
   </div>
   
   `
-}
+  }
 }
 // mostrar productos relacionados
-function mostrarProductosRelated(productos){ //recibe todos los productos
-  for (let index = 0; index < currentProduct.relatedProducts.length; index++) {//el for se repite segun la cantidad de elementos que tenga relatedProducts
-//obtengo el primer indice del relacionado
-  let indiceRelacionado = currentProduct.relatedProducts[index]
-//obtengo el producto [indice]
-  let relacionado = productos[indiceRelacionado]
-  // del producto relacionado obtenemos los atributos
-  let nombre = relacionado.name;
-  let costo = relacionado.currency + " " + relacionado.cost;
-  let imagen = relacionado.imgSrc;
-//definimos el contenedor HTML donde se van a mostrar los productos relacionados
-  let contenedorRelatedProducts = document.getElementById("productosRelated");
-//a ese contenedor le insertamos la plantilla
-  contenedorRelatedProducts.innerHTML += `
+function mostrarProductosRelated(productos) { //recibe todos los productos
+  for (let index = 0; index < currentProduct.relatedProducts.length; index++) { //el for se repite segun la cantidad de elementos que tenga relatedProducts
+    //obtengo el primer indice del relacionado
+    let indiceRelacionado = currentProduct.relatedProducts[index]
+    //obtengo el producto [indice]
+    let relacionado = productos[indiceRelacionado]
+    // del producto relacionado obtenemos los atributos
+    let nombre = relacionado.name;
+    let costo = relacionado.currency + " " + relacionado.cost;
+    let imagen = relacionado.imgSrc;
+    //definimos el contenedor HTML donde se van a mostrar los productos relacionados
+    let contenedorRelatedProducts = document.getElementById("productosRelated");
+    //a ese contenedor le insertamos la plantilla
+    contenedorRelatedProducts.innerHTML += `
   <div class="card m-2" style="width: 18rem;">
   <img src="${imagen}" class="card-img-top" alt="...">
   <div class="card-body">
@@ -116,17 +116,18 @@ function mostrarProductosRelated(productos){ //recibe todos los productos
 
   }
 }
-function pintarEstrellas(){
 
-  let estrellas = document.getElementById("estrellas").getElementsByClassName("fa fa-star")//busca todas las estrellas del id estrellas y de ese id, la clase que contiene las estrellas pintadas
-  
+function pintarEstrellas() {
+
+  let estrellas = document.getElementById("estrellas").getElementsByClassName("fa fa-star") //busca todas las estrellas del id estrellas y de ese id, la clase que contiene las estrellas pintadas
+
   for (let i = 0; i < estrellas.length; i++) { //recorro el array de estrellas
     const estrella = estrellas[i];
     console.log(typeof estrellas)
-    estrella.addEventListener("mouseover", function(){//a cada una le agregamos un eventlistener y que se ejecute la funcion
+    estrella.addEventListener("mouseover", function () { //a cada una le agregamos un eventlistener y que se ejecute la funcion
       for (let index = 0; index < estrellas.length; index++) {
         const estrellaPintada = estrellas[index];
-        estrellaPintada.classList.remove("checked")//a la que esta pintada le eliminamos la clase checked es decir la despinto
+        estrellaPintada.classList.remove("checked") //a la que esta pintada le eliminamos la clase checked es decir la despinto
       }
       for (let index = 0; index < estrella.getAttribute("data-index"); index++) {
         const estrella = estrellas[index];
@@ -134,23 +135,24 @@ function pintarEstrellas(){
 
       }
     })
-    
+
   }
 }
-function publicarComentario(){
+
+function publicarComentario() {
   let usuario = sessionStorage.getItem("Usuario");
   let texto = document.getElementById("textoInput").value;
   let fecha = new Date().toLocaleString()
   let score = document.getElementById("estrellas").getElementsByClassName("fa fa-star checked").length;
   console.log(usuario + texto + fecha + score)
-  
+
   let contenedorComentarios = document.getElementById("comentarios");
   let estrellas = ""
-  if (score >= 0){
+  if (score >= 0) {
     for (let i = 0; i < score; i++) {
       estrellas += '<span class="fa fa-star checked"></span>'
     }
-    for (let i = 0; i < 5-score; i++) {
+    for (let i = 0; i < 5 - score; i++) {
       estrellas += '<span class="fa fa-star"></span>'
     }
   }
@@ -168,32 +170,32 @@ function publicarComentario(){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {//descarga los datos de la URL y los guarda en el resultObj
-        if (resultObj.status === "ok") { //el resultObj tiene 2 atributos, 1) el status, si salio ok o no
-            ShowProductInfo(resultObj.data); //2)el data, donde contiene toda la info. Ejecutamos la funcion showproductinfo pasandole la info del json
-
-        }
-    });
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+  getJSONData(PRODUCT_INFO_URL).then(function (resultObj) { //descarga los datos de la URL y los guarda en el resultObj
+    if (resultObj.status === "ok") { //el resultObj tiene 2 atributos, 1) el status, si salio ok o no
+      ShowProductInfo(resultObj.data); //2)el data, donde contiene toda la info. Ejecutamos la funcion showproductinfo pasandole la info del json
+      getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            mostrarComentarios(resultObj.data);
+          mostrarProductosRelated(resultObj.data);
         }
-    });
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
-      if (resultObj.status === "ok") {
-         mostrarProductosRelated(resultObj.data);
-      }
+      });
+    }
   });
+  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      mostrarComentarios(resultObj.data);
+    }
+  });
+
 
   pintarEstrellas();
 
 
-document.getElementById("resetEstrellas").addEventListener("click", function(){
-  let estrellas = document.getElementById("estrellas").getElementsByClassName("fa fa-star")
-  for (let index = 0; index < estrellas.length; index++) {
-    const estrellaPintada = estrellas[index];
-    estrellaPintada.classList.remove("checked")
-  }
-})
+  document.getElementById("resetEstrellas").addEventListener("click", function () {
+    let estrellas = document.getElementById("estrellas").getElementsByClassName("fa fa-star")
+    for (let index = 0; index < estrellas.length; index++) {
+      const estrellaPintada = estrellas[index];
+      estrellaPintada.classList.remove("checked")
+    }
+  })
 
 });

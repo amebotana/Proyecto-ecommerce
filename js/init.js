@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 function cerrarSesion(){
   sessionStorage.removeItem("Usuario");
+  localStorage.clear()
   window.location.reload();
 }
 

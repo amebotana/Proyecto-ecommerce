@@ -85,16 +85,17 @@ function showProductsList(){
             
             htmlContentToAppend += `          
             <div class= "col-md-4">
-            <a>
+            <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+                
             <div class="card">
             <img src="${product.imgSrc}" class="card-img-top" alt="${product.description}">
             <div class="card-body">
-            <h5 class="card-title">${product.name}</h5>
+            <h4 class="card-title">${product.name}</h4>
             <small class="text-muted">${product.soldCount} artículos</small>
 
             <p class="card-text">${product.description}</p>
-            <p class="mb-1">${product.currency} ${product.cost}</p>
-            <a href="#" class="btn btn-primary">Ver producto</a>
+            <strong><p class="mb-1">${product.currency} ${product.cost}</p></strong>
+            <a href="product-info.html" class="btn btn-primary">Ver producto</a>
             </a>
             </div>
             </div>

@@ -11,6 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -70,12 +71,59 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="text-center p-4">
+      <h2>Datos de usuario</h2>
+      <p class="lead">Aquí verás y podrás modificar tu información personal.</p>
+  </div>
+<div class="row">
+<div class="col-12 text-center">
+  <img src="img\avatar.png" id="fotoPerfil" alt="" width="180px" class="rounded-circle">
+
+</div>
+
+</div>
+<form class="mt-5" onsubmit="return guardarDatos()">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Nombre</label>
+      <input type="text" class="form-control" id="inputName" placeholder="Escribe tu nombre aqui...">
     </div>
+    <div class="form-group col-md-6">
+      <label for="inputLastname">Apellido</label>
+      <input type="text" class="form-control" id="inputLastname" placeholder="Escribe tu apellido...">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputPhone">Teléfono de contacto</label>
+      <input type="tel" class="form-control" id="inputPhone">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputAge">Edad</label>
+      <input type="number" class="form-control" id="inputAge">
+    </div>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputPhoto">Foto de perfil</label>
+    <input type="file" onchange="fotoCargada()" class="form-control" id="inputPhoto">
+  </div>
+<div class="row">
+  <div class="col-12">
+    <i class="m-2 fab fa-facebook"></i>
+    <i class="m-2 fab fa-twitter"></i>
+    <i class="m-2 fab fa-instagram"></i>
+
+  </div>
+</div>
+  <button type="submit" class="mt-3 btn btn-primary">Guardar datos</button>
+
+</form>
+
   </div>
   <footer class="text-muted bg-light">
     <div class="container">
