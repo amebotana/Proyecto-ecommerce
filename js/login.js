@@ -14,6 +14,14 @@ function myFunction() {
     
 }
 
+function onSignIn(googleUser) {
+    // Useful data for your client-side scripts:
+    var profile = googleUser.getBasicProfile();
+    console.log('Full Name: ' + profile.getName());
+    sessionStorage.setItem("Usuario", profile.getName()) //guardo el valor del ampo en sessionStorage
+    window.location.href = "home.html"; //redirijo la página a home
+    
+  }
 
 // document.addEventListener("DOMContentLoaded", function (e) {
 //     myFunction();
