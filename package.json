@@ -1,0 +1,23 @@
+{
+  "name": "e-mercado-ame",
+  "version": "1.0.0",
+  "description": "Proyecto JAP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amebotana/Proyecto-ecommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amebotana/Proyecto-ecommerce/issues"
+  },
+  "homepage": "https://github.com/amebotana/Proyecto-ecommerce#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}

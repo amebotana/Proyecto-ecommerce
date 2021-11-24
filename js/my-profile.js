@@ -23,12 +23,12 @@ function guardarDatos() {
 function cargarDatos() {
     let datosUsuario = JSON.parse(localStorage.getItem("datosUsuario")) // buscamos los datos de LocalStorage, y transformamos en string el objeto nuevamente
     //cambiamos el valor de los input, por los valores del objeto
-    document.getElementById("inputName").value = datosUsuario.nombre
-    document.getElementById("inputLastname").value = datosUsuario.apellido
-    document.getElementById("inputEmail").value = datosUsuario.email
-    document.getElementById("inputAge").value = datosUsuario.edad
-    document.getElementById("inputPhone").value = datosUsuario.telefono
-    document.getElementById("fotoPerfil").src = datosUsuario.foto
+    document.getElementById("inputName").value = datosUsuario.nombre || ""
+    document.getElementById("inputLastname").value = datosUsuario.apellido || ""
+    document.getElementById("inputEmail").value = datosUsuario.email || ""
+    document.getElementById("inputAge").value = datosUsuario.edad || ""
+    document.getElementById("inputPhone").value = datosUsuario.telefono || ""
+    document.getElementById("fotoPerfil").src = datosUsuario.foto || ""
 }
 
 function fotoCargada(){

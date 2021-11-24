@@ -3,6 +3,8 @@
 <html lang="en">
 
 <head>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="212167348948-uevun435q5iou7ji7fgfilb0skh4gt88.apps.googleusercontent.com">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -81,10 +83,13 @@
         <input type="checkbox" value="remember-me"> Recordar contraseña
       </label>
     </div>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     <button class="btn btn-lg btn-primary btn-block" type="button" onclick="myFunction()">Iniciar sesión</button>
   </form>
   
   <!-- <script src="js/init.js"></script> -->
   <script src="js/login.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </body>
 </html>

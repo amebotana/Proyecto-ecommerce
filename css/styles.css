@@ -176,4 +176,14 @@ a.custom-card:hover {
     font-weight: 300;
 }
 
+.btn{
+	box-shadow: none !important
+}
 
+.confetti{
+  max-width: 640px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  user-select: none;
+}

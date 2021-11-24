@@ -11,7 +11,8 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+    rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -32,36 +33,40 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">JAP E-Mercado</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="row collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav col-12 justify-content-between">
         <li class="nav-item active mx-4">
           <a class="nav-link" href="home.html">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="categories.html">Categorías	</a>
+          <a class="nav-link" href="categories.html">Categorías </a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="products.html">Productos	</a>
+          <a class="nav-link" href="products.html">Productos </a>
         </li>
         <li class="nav-item mx-4">
-          <a class="nav-link" href="sell.html">Vender	</a>
+          <a class="nav-link" href="sell.html">Vender </a>
         </li>
         <li class="nav-item dropdown ml-auto ">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <span class="d-flex-py-2" id="nombreUsuario"></span>
           </a>
           <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-            <a class="dropdown-item" href="cart.html">Ver mi carrito <span><i class="fas fa-shopping-cart"></i></span></a>
+            <a class="dropdown-item" href="cart.html">Ver mi carrito <span><i
+                  class="fas fa-shopping-cart"></i></span></a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar sesión</a>
           </div>
@@ -79,101 +84,133 @@
 
     <div class="container">
       <div class="text-right">
-        <input onchange="cambiarMoneda(this.checked)" type="checkbox" checked data-toggle="toggle" data-on="UYU" data-off="USD" data-onstyle="success" data-offstyle="danger">
+        <input onchange="cambiarMoneda(this.checked)" type="checkbox" checked data-toggle="toggle" data-on="UYU"
+          data-off="USD" data-onstyle="success" data-offstyle="danger">
       </div>
 
       <div class="row">
         <div class="col-12" id="contenedorCarrito">
           <div class="row p-2">
-            <div class="col-2 text-center"><h6>Foto</h6></div>
-            <div class="col-5"><h6 class="">Nombre producto</h6></div>
-            <div class="col-2"><h6 class="text-center">Precio unitario</h6></div>
-            <div class="col-1"><h6>Unid.</h6></div>
-            <div class="col-2"><h6 class="text-center">Subtotal</h6></div>
+            <div class="col-2 text-center">
+              <h6>Foto</h6>
+            </div>
+            <div class="col-5">
+              <h6 class="">Nombre producto</h6>
+            </div>
+            <div class="col-2">
+              <h6 class="text-center">Precio unitario</h6>
+            </div>
+            <div class="col-1">
+              <h6>Unid.</h6>
+            </div>
+            <div class="col-2">
+              <h6 class="text-center">Subtotal</h6>
+            </div>
           </div>
 
         </div>
-    
+
       </div>
       <div class="row">
-<div class="col-8">
-<h3 class="mt-5">Datos de envío:</h3>
-<p>Usaremos estos datos para generar tu factura.</p>
-<br>
-  <form>
+        <div class="col-8">
+          <h3 class="mt-5">Datos de envío:</h3>
+          <p>Usaremos estos datos para generar tu factura.</p>
+          <br>
+          <form>
 
-    <div class="form-group">
-      <label for="inputAddress">Dirección:</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Nombre de calle, número de puerta, apto o piso">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Esquina:</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Esquina">
-    </div>
-    <div class="form-group">
-      <label for="inputTelephone">Teléfono de contacto:</label>
-      <input type="text" class="form-control" id="inputTelephone" placeholder="(+598) 098572881">
-    </div>
+            <div class="form-group">
+              <label for="inputAddress">Dirección:</label>
+              <input type="text" class="form-control" id="inputAddress"
+                placeholder="Nombre de calle, número de puerta, apto o piso">
+              <small class="obligatorio-envio d-none form-text text-danger">Campo requerido</small>
+            </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">Ciudad:</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">País:</label>
-        <input type="text" class="form-control" id="inputState">
+            <div class="form-group">
+              <label for="inputAddress2">Esquina:</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Esquina">
+              <small class="obligatorio-envio d-none form-text text-danger">Campo requerido</small>
 
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Código postal</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-    </div>
-    <fieldset class="form-group">
-      <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">Tipo de envío:</legend>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="premium" checked>
-            <label class="form-check-label" for="gridRadios1">
-              Premium (2-5 días) - Costo del 15% sobre el subtotal.
-            </label>
-          </div>
-          <div class="form-check">
-            <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="express">
-            <label class="form-check-label" for="gridRadios2">
-              Express (5-8 días) - Costo del 7% sobre el subtotal.
-            </label>
-          </div>
-          <div class="form-check">
-            <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="standard">
-            <label class="form-check-label" for="gridRadios3">
-              Standard (12 a 15 días) - Costo del 5% sobre el subtotal
-            </label>
+            </div>
+            <div class="form-group">
+              <label for="inputTelephone">Teléfono de contacto:</label>
+              <input type="text" class="form-control" id="inputTelephone" placeholder="(+598) 098572881">
+              <small class="obligatorio-envio d-none form-text text-danger">Campo requerido</small>
+
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">Ciudad:</label>
+                <input type="text" class="form-control" id="inputCity">
+                <small class="obligatorio-envio d-none form-text text-danger">Campo requerido</small>
+
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">País:</label>
+                <input type="text" class="form-control" id="inputCountry">
+                <small class="obligatorio-envio d-none form-text text-danger">Campo requerido</small>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="inputZip">Código postal</label>
+                <input type="text" class="form-control" id="inputZip">
+                <small class="obligatorio-envio d-none form-text text-danger">Campo requerido</small>
+
+              </div>
+            </div>
+            <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Tipo de envío:</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios"
+                      id="gridRadios1" value="premium" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                      Premium (2-5 días) - Costo del 15% sobre el subtotal.
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios"
+                      id="gridRadios2" value="express">
+                    <label class="form-check-label" for="gridRadios2">
+                      Express (5-8 días) - Costo del 7% sobre el subtotal.
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input onclick="actualizarSubtotal()" class="form-check-input" type="radio" name="gridRadios"
+                      id="gridRadios3" value="standard">
+                    <label class="form-check-label" for="gridRadios3">
+                      Standard (12 a 15 días) - Costo del 5% sobre el subtotal
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
+        </div>
+        <div class="col-4">
+          <div id="resumenCompra" class="mt-5 text-right">
+            <h3 class="text-right">Detalle de la compra:</h3>
+            <br>
+            <p class="text-right">Producto: <span id="subtotal" class="ml-5">UYU 12 500</span></p>
+            <p class="text-right">Tipo de envío: <span id="tipoEnvio" class="ml-5">Premium</span></p>
+            <p class="text-right">Costo de envío:<span id="costoEnvio" class="ml-5">UYU 500</span></p>
+            <p class="text-right">Total a pagar:<span id="total" class="ml-5">UYU 13 000</span></p>
+            <h3 class="text-right mb-3">Método de pago:</h3>
+            <p id="metodoSeleccionado" ><strong>Sin método agregado</strong></p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-sm mb-3" data-toggle="modal" data-target="#staticBackdrop">
+              Seleccionar método
+            </button>
+            <br>
+            <button onclick="checkFinal()" type="button" class="btn btn-block m-3 btn-primary">Confirmar compra</button>
+            <br>
+            <button onclick="seguirComprando()" type="button" class="btn btn-block m-3 btn-outline-primary">Seguir
+              comprando </button>
+
+
           </div>
         </div>
-      </div>
-    </fieldset>
-  </form>
-
-</div>
-<div class="col-4">
-<div id="resumenCompra" class="mt-5">
-  <h3 class="text-right">Detalle de la compra:</h3>
-  <br>
-  <p class="text-right">Producto: <span id="subtotal" class="ml-5">UYU 12 500</span></p>
-  <p class="text-right">Tipo de envío: <span id="tipoEnvio" class="ml-5">Premium</span></p>
-  <p class="text-right">Costo de envío:<span id="costoEnvio" class="ml-5">UYU 500</span></p>
-  <p class="text-right">Total a pagar:<span id="total" class="ml-5">UYU 13 000</span></p>
-<br>
-  <button type="button" class="btn btn-block m-3 btn-primary">Confirmar compra</button>
- <br>
-  <button onclick= "seguirComprando()" type="button" class="btn btn-block m-3 btn-outline-primary">Seguir comprando </button>
-
-
-</div>
-</div>
 
       </div>
     </div>
@@ -186,7 +223,100 @@
       <div></div>
     </div>
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Selecciona tu método de pago</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input checked id="radioCC" type="radio" name="metodoDePago" value="Tarjeta de Crédito" class="for-control">
+
+            <label for="card-radio">
+              <span id="card-icon"><i class="far fa-credit-card"></i></span> TARJETA
+            </label>
+            <form id="formCC">
+              <fieldset id="opcionCC">
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputCardNumber">Número de tarjeta:</label>
+                    <input type="text" class="form-control" placeholder= "Ingrese su número de tarjeta..." id="inputCardNumber">
+                    <small class="text-danger d-none form-text obligatorio-cc">Campo requerido</small>
+
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPhone">Vencimiento (MM/AA)</label>
+                    <input type="month" class="form-control paymentInputData" data-method="card" id="inputDateCard" min="2021-10" >
+                    <small class="text-danger form-text d-none obligatorio-cc">Campo requerido</small>
+
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPinCard" >CCV</label>
+                    <input type="number" placeholder="Ver al dorso..." class="form-control" id="inputPinCard" >
+                    <small class="form-text text-danger d-none obligatorio-cc">Campo requerido</small>
+
+                  </div>
+                </div>
+
+              </fieldset>
+            </form>
+          </div>
+          <div class="form-group">
+
+            <input id="radioBank" type="radio" value="Transferencia Bancaria" name="metodoDePago" class="for-control">
+            <label for="metodoDePago"> 
+              <span id="bank-icon"><i class="fas fa-money-check-alt"></i></span>
+              TRANSFERENCIA BANCARIA
+            </label>
+            <form action="">
+              <fieldset disabled id="opcionBank">
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputBankacc">Número de cuenta bancaria:</label>
+                    <input type="text" class="form-control" id="inputBankacc">
+                    <small class="text-danger form-text d-none obligatorio-bank"></small>
+                  </div>
+                </div>
+
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Seleccionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="compraModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="compraHeader"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="compraBody" class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
   <script src="js/jquery-3.4.1.min.js"></script>
+<!--  <script src="js/confetti.js"></script> -->
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>

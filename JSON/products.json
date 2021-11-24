@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Chevrolet Onix Joy",
+        "description": "Generación 2019, variedad de colores. Motor 1.0, ideal para ciudad.",
+        "cost": 13500,
+        "currency": "USD",
+        "imgSrc": "img/prod1.jpg",
+        "soldCount": 14
+    },
+    {
+        "name": "Fiat Way",
+        "description": "La versión de Fiat que brinda confort y a un precio accesible.",
+        "cost": 14500,
+        "currency": "USD",
+        "imgSrc": "img/prod2.jpg",
+        "soldCount": 52
+    },
+    {
+        "name": "Suzuki Celerio",
+        "description": "Un auto que se ha ganado la buena fama por su economía con el combustible.",
+        "cost": 12500,
+        "currency": "USD",
+        "imgSrc": "img/prod3.jpg",
+        "soldCount": 25
+    },
+    {
+        "name": "Peugeot 208",
+        "description": "El modelo de auto que se sigue renovando y manteniendo su prestigio en comodidad.",
+        "cost": 15200,
+        "currency": "USD",
+        "imgSrc": "img/prod4.jpg",
+        "soldCount": 17
+    }
+]
